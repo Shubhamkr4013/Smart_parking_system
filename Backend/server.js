@@ -8,8 +8,18 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const User = require("./Database/User");
 const Booking = require("./Database/Booking");
+const path = require("path");
+require("dotenv").config();
 
-mongoose.connect("mongodb://127.0.0.1:27017/parkingDB")
+// 🔥 frontend serve karo
+app.use(express.static(path.join(__dirname, "../Frontend")));
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../Frontend/index.html"));
+});
+
+
+mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log("MongoDB Connected"))
 .catch(err => console.log(err));
 
@@ -29,7 +39,7 @@ let parkingData = {
 };
 
 
-let history = [];
+// let history = [];
 
 
 // 🔥 realtime update function
@@ -128,8 +138,10 @@ io.on("connection", (socket) => {
   socket.emit("parkingData", parkingData); // initial data
 });
 
-server.listen(3000, () => {
-  console.log("Server running on port 3000");
+const PORT = process.env.PORT || 3000;
+
+server.listen(PORT, () => {
+  console.log("Server running");
 });
 
 // generateCoupon
