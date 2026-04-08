@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Parking Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script> -->
+</head>
+
+<body>
+
+<!-- 🔥 HOME PAGE -->
+<div id="home" class="home">
+ 
+  <video autoplay muted loop class="bg-video">
+    <source src="1.mp4" type="video/mp4">
+  </video>
+
+  <!-- 🔥 DARK OVERLAY -->
+  <div class="dark-overlay"></div>
+
+  <div class="overlay-content">
+    <h1 class="title-animate">Smart Parking System</h1>
+    <p>Find, Book & Navigate Parking Easily</p>
+    <button onclick="enterApp()">Enter Dashboard</button>
+  </div>
+
+</div>
+
+<!-- 🔥 DASHBOARD -->
+ 
+<div id="dashboard" style="display:none;">
+
+    <button onclick="goHome()" class="back-btn">⬅ Back</button>
+    <button onclick="logout()" class="back-btn" style="right:15px; left:auto;">
+    🚪 Logout
+  </button>
+
+  <div class="container">
+    
+    <h1 class="title">Smart Parking Dashboard</h1>
+    <h2 id="welcomeUser" style="color:white; margin-bottom:10px;"></h2>
+
+    <div id="stats" class="stats"></div>
+
+    <div id="slots" class="grid"></div>
+    <h2 style="color:white; margin-top:20px;">📊 My Bookings</h2>
+
+<div id="myBookings" class="bookings"></div>
+    <div class="chart-container">
+      <canvas id="chart"></canvas>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- 🔐 AUTH POPUP -->
+<div id="authModal" class="auth-modal">
+
+  <div class="auth-box">
+    <button onclick="closeAuth()" class="close-btn">✕</button>
+    <h2 id="authTitle">Login</h2>
+
+    <input id="name" placeholder="Name" style="display:none;">
+    <input id="email" placeholder="Email">
+    <input id="password" placeholder="Password" type="password">
+
+    <button onclick="handleAuth()" id="authBtn">Login</button>
+
+    <p id="toggleText">
+      Don't have account? 
+      <span onclick="toggleAuth()">Register</span>
+    </p>
+  </div>
+
+</div>
+
+<script src="auth.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
