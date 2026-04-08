@@ -111,7 +111,7 @@ function bookSlot(slot) {
 
 // Sensor simulation
 function setSensor(slot, detected) {
-  fetch("http://localhost:3000/sensor-update", {
+  fetch("https://smart-parking-5e7c.onrender.com/sensor-update", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
