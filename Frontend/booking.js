@@ -28,7 +28,7 @@ function confirmBooking() {
     return;
   }
 
-  fetch("http://localhost:3000/book", {
+  fetch("https://smart-parking-5e7c.onrender.com/book", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"

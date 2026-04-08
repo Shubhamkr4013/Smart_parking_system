@@ -1,7 +1,7 @@
 
 
 function loadData() {
-  fetch("http://localhost:3000/status")
+  fetch("https://smart-parking-5e7c.onrender.com/status")
     .then(res => res.json())
     .then(data => {
 
@@ -247,7 +247,7 @@ function loadMyBookings() {
 
   const email = localStorage.getItem("userEmail");
 
-  fetch(`http://localhost:3000/my-bookings?email=${email}`)
+  fetch(`https://smart-parking-5e7c.onrender.com/my-bookings?email=${email}`)
     .then(res => res.json())
     .then(data => {
 
@@ -258,7 +258,7 @@ function loadMyBookings() {
 
   const email = localStorage.getItem("userEmail");
 
-  fetch(`http://localhost:3000/my-bookings?email=${email}`)
+  fetch(`https://smart-parking-5e7c.onrender.com/my-bookings?email=${email}`)
     .then(res => res.json())
     .then(data => {
 

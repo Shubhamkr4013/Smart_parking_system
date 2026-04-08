@@ -27,8 +27,8 @@ function handleAuth() {
   }
 
   const url = isLogin
-    ? "http://localhost:3000/login"
-    : "http://localhost:3000/register";
+    ? "https://smart-parking-5e7c.onrender.com/login"
+    : "https://smart-parking-5e7c.onrender.com/register";
 
   fetch(url, {
     method: "POST",
